@@ -1,0 +1,42 @@
+nav{
+    height: 80px;
+  
+    background-color: var(--main-color);
+  
+    display: flex;
+    align-items: center;
+  
+    color: white;
+  }
+  
+  .logo{
+    white-space: nowrap;
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon{
+    font-size: 40px;
+  }
+  
+  .nav-links{
+    list-style: none;
+  
+    flex: 1;
+  
+    min-width: 300px;
+    max-width: 500px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+    margin-left: auto;
+  
+    white-space: nowrap;
+  }
+  
+  .nav-links > li {
+    cursor: pointer;
+  }
