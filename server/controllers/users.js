@@ -61,7 +61,7 @@ export const signup = async (req, res) => {
                     throw error;
                 }
 
-                const token = jwt.sign({username: username}, 'dev');
+                const token = jwt.sign({uid: result.insertId, username: username}, 'dev');
 
                 return res.status(200).json({"token": token});
             });

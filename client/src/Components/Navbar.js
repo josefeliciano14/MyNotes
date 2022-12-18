@@ -11,6 +11,8 @@ function Navbar(){
 
     const [user, setUser] = useState("");
 
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
+
     const nav = useNavigate();
 
     useEffect(() => {
@@ -19,6 +21,9 @@ function Navbar(){
         if(token){
             setUser(decode(token).username);
         }
+        else{
+            nav("/login");
+        }
     }, []);
     
     function logout(){
@@ -26,7 +31,11 @@ function Navbar(){
     
         setUser("");
     
-        nav("/");
+        nav("/login");
+    }
+
+    function openUserMenu(){
+        setUserMenuOpen(!userMenuOpen);
     }
 
     return(
@@ -34,14 +43,15 @@ function Navbar(){
             <Link to='/'><span className='logo'>ToDo</span></Link>
             <div className='emptyspace'></div>
             <i className="fa-solid fa-bars"></i>
-            <ul className='nav-links'>
-            <li>
-                { user
-                    ? <div>{user} <FontAwesomeIcon icon={faCaretDown}/></div>
-                    : <Link to='/login'>Login</Link> 
-                }
-            </li>
-            </ul>
+            { user
+                ? <div className='user' onClick={openUserMenu}>{user} <FontAwesomeIcon icon={faCaretDown}/></div>
+                : <Link to='/login'>Login</Link> 
+            }
+            {userMenuOpen &&
+                <div className='user-menu-container'>
+                    <div className='user-menu' onClick={logout}>Logout</div>
+                </div>
+            }
         </nav>
     )
 }

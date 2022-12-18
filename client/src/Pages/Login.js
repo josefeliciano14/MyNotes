@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import './Login.css';
 
 function Login(){
     const [formData, setFormData] = useState({username: '', password: ''});
+
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const nav = useNavigate();
 
     function login(e){
         e.preventDefault();
@@ -19,11 +25,13 @@ function Login(){
                 if(data?.token){
                     localStorage.setItem("auth", data.token);
 
+                    nav("/");
+
                     return;
                 }
 
                 if(data?.message){
-                    console.log(data?.message);
+                    setErrorMessage(data?.message);
                 }
             });
     }
@@ -40,6 +48,7 @@ function Login(){
                 <input type='text' name='username' placeholder='Username' onChange={handleChange}/>
                 <input type="password" name='password' placeholder='Password' onChange={handleChange}/>
                 <button onClick={login}>Login</button>
+                <span className="error-message">{errorMessage}</span>
             </form>
 
             <Link to="/register">Don't have an account? Register Here</Link>

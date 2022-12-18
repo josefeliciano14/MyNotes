@@ -9,34 +9,33 @@ nav{
     color: white;
   }
   
-  .logo{
-    white-space: nowrap;
-  
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-icon{
-    font-size: 40px;
-  }
-  
-  .nav-links{
-    list-style: none;
-  
-    flex: 1;
-  
-    min-width: 300px;
-    max-width: 500px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  
-    margin-left: auto;
-  
-    white-space: nowrap;
-  }
-  
-  .nav-links > li {
-    cursor: pointer;
-  }
+.logo{
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon{
+  font-size: 40px;
+}
+
+.user{
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.user-menu-container{
+  position: relative;
+}
+
+.user-menu{
+  width: 100px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  background-color: var(--third-color);
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
