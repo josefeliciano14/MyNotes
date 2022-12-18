@@ -96,3 +96,44 @@ export const deleteToDo = async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 }
+
+export const editToDo = async (req, res) => {
+    const user_id = req.uid;
+
+    if(!user_id){
+        return res.status(401).send("Unauthenticated");
+    } 
+
+    let {tid, title, description} = req.body;
+
+    if(!title){
+        return res.status(400).send("Title Undefined");
+    }
+
+    if(!description){
+        description = "";
+    }
+
+    console.log(req.body);
+
+    try{
+        let sql = "UPDATE ToDo SET title=?, description=? WHERE tid=?;";
+
+        await new Promise((resolve, reject) => {
+            db.query(sql, [title, description, tid], (error, result) => {
+                if(error){
+                    throw error;
+                }
+
+                console.log(result);
+
+                res.status(200).send("OK");
+
+                resolve();
+            });
+        });
+
+    } catch (error){
+        res.status(500).send("Internal Server Error");
+    }
+}

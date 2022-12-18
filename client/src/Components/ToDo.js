@@ -6,8 +6,13 @@ import { deleteToDo } from '../api/todo'
 
 import './ToDo.css'
 
-function ToDo({tid, title, description, removeItem}){
+function ToDo({tid, title, description, removeItem, editItem}){
     
+    function handleEdit(){
+        editItem({"tid": tid, "title": title, "description": description});
+    }
+    
+    //Delete
     function handleDelete(){
         deleteToDo(tid);
 
@@ -21,7 +26,7 @@ function ToDo({tid, title, description, removeItem}){
                     <span>{title}</span>
                 </div>
 
-                <div className='todo-button edit-button'>
+                <div className='todo-button edit-button' onClick={handleEdit}>
                     <FontAwesomeIcon icon={faPencil}/>
                 </div>
 
