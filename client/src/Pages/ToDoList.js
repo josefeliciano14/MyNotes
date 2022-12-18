@@ -34,7 +34,7 @@ function ToDoList(){
 
     function removeItem(tid){
         setList((prevList) => {
-            return [prevList.filter(li => li.tid != tid)];
+            return [prevList.filter(li => li.key != tid)];
         });
     }
 
@@ -67,6 +67,8 @@ function ToDoList(){
                 });
         
         setList([...list, <ToDo key={tid} tid={tid} title={addItemForm.title} description={addItemForm.description} removeItem={removeItem}></ToDo>])
+
+        handleClose();
     }
     
     return(
