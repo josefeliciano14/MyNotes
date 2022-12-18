@@ -1,0 +1,56 @@
+.todo-list{
+    width: 100%;
+    max-width: 800px;
+}
+
+.add-item-button{
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.modal-title{
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-entry{
+    display: flex;
+    margin: 10px 0;
+}
+
+.form-label{
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-input{
+    flex: 1;
+    
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    resize: none;
+
+    border-radius: 7px;
+}
+
+.item-modal{
+    background-color: var(--third-color);
+    color: white;
+    padding: 23px;
+    border-radius: 15px;
+}
+
+.modal-content{
+    border-radius: 17px;
+}
+
+.item-modal-footer{
+    text-align: right;
+}
+
+.item-modal-footer > button{
+    margin: 10px;
+}

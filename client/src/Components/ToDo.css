@@ -1,0 +1,49 @@
+.todo{
+    background-color: var(--third-color);
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px;
+
+    margin-bottom: 25px;
+}
+
+.todo-header{
+    display: flex;
+}
+
+.todo-title{
+    font-size: 20px;
+    
+    flex: 1;
+
+    display:flex;
+    align-items: center;
+}
+
+.todo-button{
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+    padding: 10px 0;
+    width: 50px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-button{
+    background-color: orange;
+}
+
+.delete-button{
+    background-color: var(--warning-color);
+}
+
+.todo-description{
+    background-color: var(--secondary-color);
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
