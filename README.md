@@ -1,2 +1,2 @@
-# MyNotes
- Simple notes application created for interview process 
+# ToDo
+ Simple to-do application created for interview process 
